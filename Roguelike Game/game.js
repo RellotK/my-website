@@ -1079,18 +1079,6 @@ function movePlayer(dx, dy) {
         document.getElementById('nextLevelBtn').disabled = false;
     }
     
-    // 檢查陷阱
-    if (Math.random() < 0.05) {
-        const damage = Math.floor(gameState.player.maxHp * 0.1);
-        gameState.player.hp = Math.max(0, gameState.player.hp - damage);
-        addLog(`⚠️ 你踩到了陷阱！受到 ${damage} 點傷害！`, 'danger');
-        
-        if (gameState.player.hp === 0) {
-            gameOver();
-            return;
-        }
-    }
-    
     grid[newY][newX] = CELL_TYPES.PLAYER;
     renderDungeon();
     updateUI();
