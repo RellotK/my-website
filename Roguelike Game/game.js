@@ -827,7 +827,34 @@ function selectClass(className) {
     addLog(`你選擇了 ${classData.icon} ${classData.name}！`, 'success');
     addLog(`技能：${classData.skillName} - ${classData.skillDesc}`, 'info');
     
-    startNewGame();
+    initializeNewGame();
+}
+
+// 初始化新遊戲（選擇職業後）
+function initializeNewGame() {
+    // 重置地牢
+    gameState.dungeon = {
+        level: 1,
+        grid: [],
+        enemies: [],
+        items: [],
+        stairsFound: false
+    };
+    
+    gameState.gameOver = false;
+    gameState.inBattle = false;
+    
+    // 生成地牢
+    generateDungeon();
+    
+    // 更新UI
+    updateUI();
+    
+    const classData = CLASSES[gameState.player.class];
+    addLog('🎮 新遊戲開始！', 'success');
+    addLog(`職業：${classData.icon} ${classData.name}`, 'info');
+    addLog(`你進入了地牢的第 ${gameState.dungeon.level} 層...`, 'info');
+    addLog('小心探索，擊敗敵人，尋找下層的樓梯！', 'info');
 }
 
 function handleKeyPress(e) {
@@ -852,38 +879,13 @@ function handleKeyPress(e) {
 // ========================================
 
 function startNewGame() {
-    if (!gameState.classSelected) {
-        showClassSelection();
-        return;
-    }
-    
-    // 重置地牢
-    gameState.dungeon = {
-        level: 1,
-        grid: [],
-        enemies: [],
-        items: [],
-        stairsFound: false
-    };
-    
-    gameState.gameOver = false;
-    gameState.inBattle = false;
-    
-    // 關閉模態框
+    // 關閉所有模態框
     document.getElementById('gameOverModal').style.display = 'none';
     document.getElementById('battleModal').style.display = 'none';
+    document.getElementById('skillTreeModal').style.display = 'none';
     
-    // 生成地牢
-    generateDungeon();
-    
-    // 更新UI
-    updateUI();
-    
-    const classData = CLASSES[gameState.player.class];
-    addLog('🎮 新遊戲開始！', 'success');
-    addLog(`職業：${classData.icon} ${classData.name}`, 'info');
-    addLog(`你進入了地牢的第 ${gameState.dungeon.level} 層...`, 'info');
-    addLog('小心探索，擊敗敵人，尋找下層的樓梯！', 'info');
+    // 總是顯示職業選擇界面
+    showClassSelection();
 }
 
 function generateDungeon() {
