@@ -828,6 +828,11 @@ function selectClass(className) {
     addLog(`你選擇了 ${classData.icon} ${classData.name}！`, 'success');
     addLog(`技能：${classData.skillName} - ${classData.skillDesc}`, 'info');
     
+    // 自動開啟音樂（如果音樂已啟用）
+    if (musicEnabled && bgMusic) {
+        playMusic();
+    }
+    
     initializeNewGame();
 }
 
