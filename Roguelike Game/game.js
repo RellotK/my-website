@@ -727,6 +727,7 @@ let gameState = {
 function initGame() {
     setupEventListeners();
     setupEquipmentSlots();
+    setupMusicControl();
     showClassSelection();
 }
 
@@ -2114,6 +2115,77 @@ function addBattleLog(message, type = 'info') {
 
 function clearBattleLog() {
     document.getElementById('battleLog').innerHTML = '';
+}
+
+// ========================================
+// 音樂控制系統
+// ========================================
+
+let musicEnabled = true;
+let bgMusic = null;
+
+function setupMusicControl() {
+    bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    
+    // 檢查本地存儲的音樂設置
+    const savedMusicState = localStorage.getItem('musicEnabled');
+    if (savedMusicState !== null) {
+        musicEnabled = savedMusicState === 'true';
+    }
+    
+    // 設置初始狀態
+    updateMusicButton();
+    
+    // 音樂按鈕點擊事件
+    musicToggle.addEventListener('click', toggleMusic);
+    
+    // 嘗試自動播放（某些瀏覽器需要用戶互動）
+    if (musicEnabled) {
+        playMusic();
+    }
+}
+
+function toggleMusic() {
+    musicEnabled = !musicEnabled;
+    localStorage.setItem('musicEnabled', musicEnabled);
+    
+    if (musicEnabled) {
+        playMusic();
+    } else {
+        pauseMusic();
+    }
+    
+    updateMusicButton();
+}
+
+function playMusic() {
+    if (bgMusic && musicEnabled) {
+        bgMusic.volume = 0.3; // 設置音量為 30%
+        bgMusic.play().catch(error => {
+            console.log('音樂播放失敗（可能需要用戶互動）:', error);
+            // 如果自動播放失敗，在下次用戶點擊時再試
+        });
+    }
+}
+
+function pauseMusic() {
+    if (bgMusic) {
+        bgMusic.pause();
+    }
+}
+
+function updateMusicButton() {
+    const musicToggle = document.getElementById('musicToggle');
+    if (musicEnabled) {
+        musicToggle.textContent = '🔊';
+        musicToggle.classList.remove('muted');
+        musicToggle.title = '點擊關閉音樂';
+    } else {
+        musicToggle.textContent = '🔇';
+        musicToggle.classList.add('muted');
+        musicToggle.title = '點擊開啟音樂';
+    }
 }
 
 // ========================================
