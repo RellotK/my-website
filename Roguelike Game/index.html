@@ -280,6 +280,84 @@
             </div>
         </div>
 
+        <!-- 新手教學模態框 -->
+        <div class="modal" id="tutorialModal" style="display: none;">
+            <div class="modal-content tutorial-modal">
+                <h2>📚 冒險者指南 📚</h2>
+                <p class="tutorial-subtitle">在踏入深淵之前，先了解冒險的基本知識</p>
+                
+                <div class="tutorial-content">
+                    <!-- 移動與探索 -->
+                    <div class="tutorial-section">
+                        <div class="tutorial-icon">🎮</div>
+                        <h3>移動與探索</h3>
+                        <div class="tutorial-details">
+                            <p>• <strong>電腦操作：</strong>使用 WASD 或方向鍵移動角色</p>
+                            <p>• <strong>手機操作：</strong>點擊相鄰格子或使用虛擬方向鍵</p>
+                            <p>• <strong>目標：</strong>找到樓梯 🎯 進入下一層地牢</p>
+                        </div>
+                    </div>
+
+                    <!-- 戰鬥系統 -->
+                    <div class="tutorial-section">
+                        <div class="tutorial-icon">⚔️</div>
+                        <h3>戰鬥系統</h3>
+                        <div class="tutorial-details">
+                            <p>• <strong>遭遇敵人：</strong>移動到敵人位置自動開始戰鬥</p>
+                            <p>• <strong>戰鬥選項：</strong>攻擊、防禦、使用技能或逃跑</p>
+                            <p>• <strong>技能消耗：</strong>使用技能需要消耗魔力值（MP）</p>
+                            <p>• <strong>獲得獎勵：</strong>擊敗敵人獲得經驗值、金幣和裝備</p>
+                        </div>
+                    </div>
+
+                    <!-- 角色成長 -->
+                    <div class="tutorial-section">
+                        <div class="tutorial-icon">📈</div>
+                        <h3>角色成長</h3>
+                        <div class="tutorial-details">
+                            <p>• <strong>等級提升：</strong>累積經驗值可以升級，提升基礎屬性</p>
+                            <p>• <strong>技能點數：</strong>每次升級獲得 1 點技能點，用於學習技能</p>
+                            <p>• <strong>職業進階：</strong>10 級和 30 級時可以進階到更強職業</p>
+                            <p>• <strong>技能樹：</strong>點擊左側「技能樹」按鈕學習新技能</p>
+                        </div>
+                    </div>
+
+                    <!-- 物品系統 -->
+                    <div class="tutorial-section">
+                        <div class="tutorial-icon">🎒</div>
+                        <h3>物品與裝備</h3>
+                        <div class="tutorial-details">
+                            <p>• <strong>撿取物品：</strong>移動到物品位置自動撿取</p>
+                            <p>• <strong>裝備管理：</strong>點擊背包中的裝備可以穿戴</p>
+                            <p>• <strong>使用藥水：</strong>點擊消耗品立即使用恢復生命或魔力</p>
+                            <p>• <strong>賣出物品：</strong>點擊「賣出模式」可以出售物品換取金幣</p>
+                        </div>
+                    </div>
+
+                    <!-- 生存技巧 -->
+                    <div class="tutorial-section">
+                        <div class="tutorial-icon">💡</div>
+                        <h3>生存技巧</h3>
+                        <div class="tutorial-details">
+                            <p>• <strong>量力而行：</strong>遇到強敵可以選擇逃跑，保存實力</p>
+                            <p>• <strong>資源管理：</strong>合理使用藥水和技能，避免浪費魔力</p>
+                            <p>• <strong>裝備優先：</strong>優先裝備高品質裝備提升戰鬥力</p>
+                            <p>• <strong>謹慎前進：</strong>生命值過低時使用治療或返回城鎮</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tutorial-footer">
+                    <button class="btn btn-primary btn-large" id="tutorialNextBtn">
+                        ✨ 我準備好了！選擇職業 ✨
+                    </button>
+                    <button class="btn btn-secondary btn-small" id="skipTutorialBtn">
+                        跳過教學
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- 職業選擇模態框 -->
         <div class="modal" id="classSelectModal" style="display: none;">
             <div class="modal-content class-select-modal">

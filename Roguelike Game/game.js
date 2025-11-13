@@ -739,8 +739,20 @@ function setupEventListeners() {
     // 開場劇情按鈕
     document.getElementById('startAdventureBtn').addEventListener('click', () => {
         document.getElementById('prologueModal').style.display = 'none';
+        showTutorial();
+    });
+    
+    // 新手教學按鈕
+    document.getElementById('tutorialNextBtn').addEventListener('click', () => {
+        document.getElementById('tutorialModal').style.display = 'none';
         showClassSelection();
     });
+    
+    document.getElementById('skipTutorialBtn').addEventListener('click', () => {
+        document.getElementById('tutorialModal').style.display = 'none';
+        showClassSelection();
+    });
+    
     document.getElementById('attackBtn').addEventListener('click', () => playerBattleAction('attack'));
     document.getElementById('defendBtn').addEventListener('click', () => playerBattleAction('defend'));
     document.getElementById('fleeBtn').addEventListener('click', () => playerBattleAction('flee'));
@@ -785,6 +797,11 @@ function setupEventListeners() {
 // 顯示開場劇情
 function showPrologue() {
     document.getElementById('prologueModal').style.display = 'flex';
+}
+
+// 顯示新手教學
+function showTutorial() {
+    document.getElementById('tutorialModal').style.display = 'flex';
 }
 
 // 顯示職業選擇

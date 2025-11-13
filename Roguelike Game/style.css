@@ -1023,6 +1023,112 @@ body {
 }
 
 /* ========================================
+   新手教學
+   ======================================== */
+
+.tutorial-modal {
+    max-width: 950px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.tutorial-modal h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+}
+
+.tutorial-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 1.05em;
+}
+
+.tutorial-content {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tutorial-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.tutorial-section:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+    box-shadow: -5px 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.tutorial-icon {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.tutorial-section h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.tutorial-details {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.tutorial-details p {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tutorial-details p:hover {
+    border-left-color: var(--primary-color);
+    padding-left: 15px;
+    color: var(--text-primary);
+}
+
+.tutorial-details strong {
+    color: var(--info-color);
+    font-weight: 600;
+}
+
+.tutorial-footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#tutorialNextBtn {
+    width: 100%;
+    font-size: 1.2em;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+#skipTutorialBtn {
+    width: 100%;
+    opacity: 0.7;
+}
+
+#skipTutorialBtn:hover {
+    opacity: 1;
+}
+
+/* ========================================
    職業選擇
    ======================================== */
 
@@ -1496,6 +1602,29 @@ body {
     
     .subtitle {
         font-size: 0.9em;
+    }
+    
+    /* 新手教學移動端優化 */
+    .tutorial-modal {
+        max-width: 95%;
+        max-height: 85vh;
+        padding: 15px;
+    }
+    
+    .tutorial-modal h2 {
+        font-size: 1.5em;
+    }
+    
+    .tutorial-icon {
+        font-size: 2.5em;
+    }
+    
+    .tutorial-section h3 {
+        font-size: 1.2em;
+    }
+    
+    .tutorial-details {
+        font-size: 0.95em;
     }
     
     /* 音樂按鈕移動端優化 */
