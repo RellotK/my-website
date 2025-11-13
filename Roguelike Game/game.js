@@ -728,13 +728,19 @@ function initGame() {
     setupEventListeners();
     setupEquipmentSlots();
     setupMusicControl();
-    showClassSelection();
+    showPrologue();
 }
 
 function setupEventListeners() {
     document.getElementById('newGameBtn').addEventListener('click', startNewGame);
     document.getElementById('nextLevelBtn').addEventListener('click', nextLevel);
     document.getElementById('healBtn').addEventListener('click', healPlayer);
+    
+    // 開場劇情按鈕
+    document.getElementById('startAdventureBtn').addEventListener('click', () => {
+        document.getElementById('prologueModal').style.display = 'none';
+        showClassSelection();
+    });
     document.getElementById('attackBtn').addEventListener('click', () => playerBattleAction('attack'));
     document.getElementById('defendBtn').addEventListener('click', () => playerBattleAction('defend'));
     document.getElementById('fleeBtn').addEventListener('click', () => playerBattleAction('flee'));
@@ -774,6 +780,11 @@ function setupEventListeners() {
     });
     
     gameState.sellMode = false;
+}
+
+// 顯示開場劇情
+function showPrologue() {
+    document.getElementById('prologueModal').style.display = 'flex';
 }
 
 // 顯示職業選擇
@@ -1155,9 +1166,11 @@ function pickupItem(item) {
         // 裝備物品
         gameState.player.inventory.push({...item});
         addLog(`已放入背包`, 'info');
+        console.log('物品已加入背包:', item.name, '背包數量:', gameState.player.inventory.length);
     }
     
     updateUI();
+    updateInventoryDisplay();
 }
 
 function equipItem(item, fromInventory = false) {
@@ -1455,6 +1468,7 @@ function winBattle() {
             addBattleLog(`💎 ${enemy.name} 掉落了 ${getRarityColor(loot.rarity)}${loot.name}！`, 'success');
             gameState.player.inventory.push({...loot});
             addLog(`📦 ${loot.name} 已放入背包`, 'success');
+            console.log('戰利品已加入背包:', loot.name, '背包數量:', gameState.player.inventory.length);
             // 立即更新背包顯示
             updateInventoryDisplay();
         }
@@ -1865,12 +1879,14 @@ function updateUI() {
     document.getElementById('playerGold').textContent = player.gold;
     document.getElementById('playerCrit').textContent = `${Math.floor(player.critChance * 100)}%`;
     
-    // 更新技能按鈕文字
+    // 更新技能按鈕文字（如果存在）
     if (classData) {
         const skillBtn = document.getElementById('skillBtn');
-        const mpCost = classData.mpCost || 0;
-        skillBtn.textContent = `✨ ${classData.skillName} (${mpCost})`;
-        skillBtn.disabled = player.mp < mpCost;
+        if (skillBtn) {
+            const mpCost = classData.mpCost || 0;
+            skillBtn.textContent = `✨ ${classData.skillName} (${mpCost})`;
+            skillBtn.disabled = player.mp < mpCost;
+        }
     }
     
     updateInventoryDisplay();
@@ -1980,6 +1996,8 @@ function setupEquipmentSlots() {
 function updateInventoryDisplay() {
     const inventory = document.getElementById('inventory');
     const items = gameState.player.inventory;
+    
+    console.log('更新背包顯示，物品數量:', items.length, items);
     
     if (items.length === 0) {
         inventory.innerHTML = '<div class="empty-inventory">背包是空的</div>';
