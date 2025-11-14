@@ -646,15 +646,15 @@ const JOB_ADVANCEMENT = {
 
 // 敵人模板
 const ENEMY_TEMPLATES = [
-    { name: '哥布林', avatar: '👹', hp: 50, attack: 12, defense: 5, exp: 20, gold: 10, level: 1 },
-    { name: '骷髏戰士', avatar: '💀', hp: 80, attack: 18, defense: 8, exp: 35, gold: 20, level: 2 },
-    { name: '黑暗法師', avatar: '🧙‍♂️', hp: 90, attack: 25, defense: 6, exp: 45, gold: 30, level: 3 },
-    { name: '獸人勇士', avatar: '👺', hp: 130, attack: 22, defense: 12, exp: 55, gold: 35, level: 4 },
-    { name: '石像鬼', avatar: '🗿', hp: 180, attack: 28, defense: 18, exp: 70, gold: 45, level: 5 },
-    { name: '惡魔', avatar: '😈', hp: 220, attack: 35, defense: 15, exp: 90, gold: 60, level: 6 },
-    { name: '吸血鬼', avatar: '🧛', hp: 200, attack: 42, defense: 12, exp: 100, gold: 70, level: 7 },
-    { name: '龍族守衛', avatar: '🐉', hp: 300, attack: 50, defense: 25, exp: 150, gold: 100, level: 8 },
-    { name: '深淵領主', avatar: '👿', hp: 400, attack: 65, defense: 30, exp: 200, gold: 150, level: 9 }
+    { name: '哥布林', avatar: '👹', hp: 25, attack: 8, defense: 2, exp: 20, gold: 10, level: 1 },
+    { name: '骷髏戰士', avatar: '💀', hp: 35, attack: 10, defense: 3, exp: 35, gold: 20, level: 2 },
+    { name: '黑暗法師', avatar: '🧙‍♂️', hp: 40, attack: 12, defense: 3, exp: 45, gold: 30, level: 3 },
+    { name: '獸人勇士', avatar: '👺', hp: 50, attack: 14, defense: 5, exp: 55, gold: 35, level: 4 },
+    { name: '石像鬼', avatar: '🗿', hp: 65, attack: 16, defense: 7, exp: 70, gold: 45, level: 5 },
+    { name: '惡魔', avatar: '😈', hp: 80, attack: 20, defense: 8, exp: 90, gold: 60, level: 6 },
+    { name: '吸血鬼', avatar: '🧛', hp: 90, attack: 24, defense: 7, exp: 100, gold: 70, level: 7 },
+    { name: '龍族守衛', avatar: '🐉', hp: 120, attack: 30, defense: 12, exp: 150, gold: 100, level: 8 },
+    { name: '深淵領主', avatar: '👿', hp: 150, attack: 38, defense: 15, exp: 200, gold: 150, level: 9 }
 ];
 
 // 物品模板
@@ -776,7 +776,103 @@ const ITEM_TEMPLATES = [
     { name: '戰神徽章', type: 'accessory', avatar: '🎖️', effect: { attack: 12, hp: 80 }, rarity: 'legendary', price: 450 },
     { name: '不滅之心', type: 'accessory', avatar: '❤️', effect: { hp: 200, defense: 8 }, rarity: 'legendary', price: 480 },
     { name: '無盡魔源', type: 'accessory', avatar: '✨', effect: { mp: 100, critChance: 0.06 }, rarity: 'legendary', price: 460 },
-    { name: '全知之眼', type: 'accessory', avatar: '👁️', effect: { attack: 10, defense: 8, critChance: 0.05 }, rarity: 'legendary', price: 500 }
+    { name: '全知之眼', type: 'accessory', avatar: '👁️', effect: { attack: 10, defense: 8, critChance: 0.05 }, rarity: 'legendary', price: 500 },
+    
+    // 普通頭盔 (10種)
+    { name: '布帽', type: 'helmet', avatar: '🎩', effect: { defense: 2 }, rarity: 'common', price: 30 },
+    { name: '皮製頭巾', type: 'helmet', avatar: '🧢', effect: { defense: 2, hp: 10 }, rarity: 'common', price: 35 },
+    { name: '鐵頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 3 }, rarity: 'common', price: 40 },
+    { name: '戰士頭盔', type: 'helmet', avatar: '🪖', effect: { defense: 3, hp: 15 }, rarity: 'common', price: 45 },
+    { name: '皮盔', type: 'helmet', avatar: '🎓', effect: { defense: 2, mp: 10 }, rarity: 'common', price: 40 },
+    { name: '學徒帽', type: 'helmet', avatar: '🧙', effect: { defense: 2, attack: 1 }, rarity: 'common', price: 45 },
+    { name: '輕型頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 3, critChance: 0.02 }, rarity: 'common', price: 50 },
+    { name: '斗笠', type: 'helmet', avatar: '👒', effect: { defense: 2, hp: 20 }, rarity: 'common', price: 50 },
+    { name: '鐵面罩', type: 'helmet', avatar: '🎭', effect: { defense: 4, attack: -1 }, rarity: 'common', price: 55 },
+    { name: '野蠻人頭飾', type: 'helmet', avatar: '👑', effect: { defense: 3, attack: 2 }, rarity: 'common', price: 60 },
+    
+    // 普通手套 (10種)
+    { name: '布手套', type: 'gloves', avatar: '🧤', effect: { attack: 2 }, rarity: 'common', price: 30 },
+    { name: '皮手套', type: 'gloves', avatar: '🧤', effect: { attack: 2, defense: 1 }, rarity: 'common', price: 35 },
+    { name: '工人手套', type: 'gloves', avatar: '🧤', effect: { attack: 3, hp: 10 }, rarity: 'common', price: 40 },
+    { name: '戰鬥手套', type: 'gloves', avatar: '🥊', effect: { attack: 3 }, rarity: 'common', price: 45 },
+    { name: '弓箭手護手', type: 'gloves', avatar: '🧤', effect: { attack: 2, critChance: 0.02 }, rarity: 'common', price: 45 },
+    { name: '鐵手套', type: 'gloves', avatar: '🧤', effect: { attack: 3, defense: 1 }, rarity: 'common', price: 50 },
+    { name: '刺客手套', type: 'gloves', avatar: '🧤', effect: { attack: 4, critChance: -0.01 }, rarity: 'common', price: 55 },
+    { name: '法師手套', type: 'gloves', avatar: '🧤', effect: { attack: 2, mp: 10 }, rarity: 'common', price: 50 },
+    { name: '力量護腕', type: 'gloves', avatar: '🧤', effect: { attack: 4, defense: -1 }, rarity: 'common', price: 55 },
+    { name: '靈巧手套', type: 'gloves', avatar: '🧤', effect: { attack: 3, critChance: 0.03 }, rarity: 'common', price: 60 },
+    
+    // 優秀頭盔 (10種)
+    { name: '鋼盔', type: 'helmet', avatar: '⛑️', effect: { defense: 6 }, rarity: 'uncommon', price: 120 },
+    { name: '騎士頭盔', type: 'helmet', avatar: '🪖', effect: { defense: 7, hp: 40 }, rarity: 'uncommon', price: 140 },
+    { name: '法師兜帽', type: 'helmet', avatar: '🧙', effect: { defense: 5, mp: 30 }, rarity: 'uncommon', price: 130 },
+    { name: '戰爭頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 6, attack: 3 }, rarity: 'uncommon', price: 150 },
+    { name: '刺客面罩', type: 'helmet', avatar: '🎭', effect: { defense: 5, critChance: 0.04 }, rarity: 'uncommon', price: 150 },
+    { name: '聖騎士盔', type: 'helmet', avatar: '⛑️', effect: { defense: 7, hp: 50 }, rarity: 'uncommon', price: 160 },
+    { name: '元素頭冠', type: 'helmet', avatar: '👑', effect: { defense: 5, mp: 40, attack: 2 }, rarity: 'uncommon', price: 170 },
+    { name: '狂戰士頭盔', type: 'helmet', avatar: '🪖', effect: { defense: 6, attack: 4, hp: 30 }, rarity: 'uncommon', price: 170 },
+    { name: '暗影兜帽', type: 'helmet', avatar: '🧙', effect: { defense: 5, critChance: 0.05 }, rarity: 'uncommon', price: 160 },
+    { name: '守護者頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 8, hp: 60 }, rarity: 'uncommon', price: 180 },
+    
+    // 優秀手套 (10種)
+    { name: '鋼鐵護手', type: 'gloves', avatar: '🧤', effect: { attack: 6, defense: 2 }, rarity: 'uncommon', price: 120 },
+    { name: '騎士手套', type: 'gloves', avatar: '🧤', effect: { attack: 7, hp: 30 }, rarity: 'uncommon', price: 140 },
+    { name: '法術手套', type: 'gloves', avatar: '🧤', effect: { attack: 6, mp: 30 }, rarity: 'uncommon', price: 130 },
+    { name: '戰爭護手', type: 'gloves', avatar: '🥊', effect: { attack: 8 }, rarity: 'uncommon', price: 150 },
+    { name: '刺客護腕', type: 'gloves', avatar: '🧤', effect: { attack: 7, critChance: 0.05 }, rarity: 'uncommon', price: 160 },
+    { name: '力量手套', type: 'gloves', avatar: '🥊', effect: { attack: 9, hp: 20 }, rarity: 'uncommon', price: 160 },
+    { name: '元素護手', type: 'gloves', avatar: '🧤', effect: { attack: 7, mp: 20 }, rarity: 'uncommon', price: 150 },
+    { name: '精準手套', type: 'gloves', avatar: '🧤', effect: { attack: 6, critChance: 0.06 }, rarity: 'uncommon', price: 170 },
+    { name: '狂怒護腕', type: 'gloves', avatar: '🥊', effect: { attack: 8, defense: 3 }, rarity: 'uncommon', price: 170 },
+    { name: '靈活手套', type: 'gloves', avatar: '🧤', effect: { attack: 7, critChance: 0.04, hp: 25 }, rarity: 'uncommon', price: 180 },
+    
+    // 稀有頭盔 (10種)
+    { name: '秘銀頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 11 }, rarity: 'rare', price: 250 },
+    { name: '龍鱗頭盔', type: 'helmet', avatar: '🐉', effect: { defense: 12, hp: 80 }, rarity: 'rare', price: 280 },
+    { name: '大法師冠', type: 'helmet', avatar: '👑', effect: { defense: 9, mp: 60, attack: 4 }, rarity: 'rare', price: 300 },
+    { name: '聖光頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 12, hp: 100 }, rarity: 'rare', price: 320 },
+    { name: '暗影面具', type: 'helmet', avatar: '🎭', effect: { defense: 10, critChance: 0.08 }, rarity: 'rare', price: 300 },
+    { name: '泰坦頭盔', type: 'helmet', avatar: '🪖', effect: { defense: 13, hp: 120 }, rarity: 'rare', price: 350 },
+    { name: '鳳凰頭冠', type: 'helmet', avatar: '👑', effect: { defense: 10, mp: 50, hp: 80 }, rarity: 'rare', price: 330 },
+    { name: '戰神頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 11, attack: 6, hp: 70 }, rarity: 'rare', price: 340 },
+    { name: '智慧頭冠', type: 'helmet', avatar: '👑', effect: { defense: 9, mp: 80, attack: 5 }, rarity: 'rare', price: 350 },
+    { name: '守護神盔', type: 'helmet', avatar: '⛑️', effect: { defense: 14, hp: 150 }, rarity: 'rare', price: 380 },
+    
+    // 稀有手套 (10種)
+    { name: '秘銀護手', type: 'gloves', avatar: '🧤', effect: { attack: 12, defense: 4 }, rarity: 'rare', price: 250 },
+    { name: '龍爪手套', type: 'gloves', avatar: '🐉', effect: { attack: 14, critChance: 0.06 }, rarity: 'rare', price: 280 },
+    { name: '魔導手套', type: 'gloves', avatar: '🧤', effect: { attack: 11, mp: 50 }, rarity: 'rare', price: 300 },
+    { name: '聖光護手', type: 'gloves', avatar: '🧤', effect: { attack: 13, hp: 70, defense: 3 }, rarity: 'rare', price: 320 },
+    { name: '暗殺者手套', type: 'gloves', avatar: '🧤', effect: { attack: 15, critChance: 0.08 }, rarity: 'rare', price: 320 },
+    { name: '泰坦護腕', type: 'gloves', avatar: '🥊', effect: { attack: 16, hp: 80 }, rarity: 'rare', price: 350 },
+    { name: '烈焰手套', type: 'gloves', avatar: '🔥', effect: { attack: 14, critChance: 0.05, mp: 30 }, rarity: 'rare', price: 330 },
+    { name: '狂暴護手', type: 'gloves', avatar: '🥊', effect: { attack: 17, defense: -2 }, rarity: 'rare', price: 340 },
+    { name: '精靈手套', type: 'gloves', avatar: '🧤', effect: { attack: 13, critChance: 0.07, mp: 40 }, rarity: 'rare', price: 350 },
+    { name: '毀滅護腕', type: 'gloves', avatar: '🥊', effect: { attack: 18, hp: 60 }, rarity: 'rare', price: 380 },
+    
+    // 傳說頭盔 (10種)
+    { name: '神聖頭冠', type: 'helmet', avatar: '👑', effect: { defense: 18, hp: 200 }, rarity: 'legendary', price: 600 },
+    { name: '龍神之盔', type: 'helmet', avatar: '🐉', effect: { defense: 20, hp: 250, attack: 5 }, rarity: 'legendary', price: 650 },
+    { name: '全知之冠', type: 'helmet', avatar: '👑', effect: { defense: 17, mp: 120, attack: 8 }, rarity: 'legendary', price: 680 },
+    { name: '永恆頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 22, hp: 280 }, rarity: 'legendary', price: 700 },
+    { name: '暗影之冠', type: 'helmet', avatar: '👑', effect: { defense: 16, critChance: 0.12, attack: 10 }, rarity: 'legendary', price: 720 },
+    { name: '泰坦之冠', type: 'helmet', avatar: '👑', effect: { defense: 24, hp: 300 }, rarity: 'legendary', price: 750 },
+    { name: '神話頭盔', type: 'helmet', avatar: '⛑️', effect: { defense: 19, hp: 220, mp: 100, attack: 6 }, rarity: 'legendary', price: 730 },
+    { name: '戰神之冠', type: 'helmet', avatar: '👑', effect: { defense: 20, attack: 12, hp: 200 }, rarity: 'legendary', price: 740 },
+    { name: '星辰頭冠', type: 'helmet', avatar: '⭐', effect: { defense: 18, mp: 150, critChance: 0.08 }, rarity: 'legendary', price: 760 },
+    { name: '創世之盔', type: 'helmet', avatar: '👑', effect: { defense: 26, hp: 350 }, rarity: 'legendary', price: 800 },
+    
+    // 傳說手套 (10種)
+    { name: '神力手套', type: 'gloves', avatar: '🥊', effect: { attack: 22, hp: 150 }, rarity: 'legendary', price: 600 },
+    { name: '龍神護手', type: 'gloves', avatar: '🐉', effect: { attack: 25, critChance: 0.10, defense: 5 }, rarity: 'legendary', price: 650 },
+    { name: '全能手套', type: 'gloves', avatar: '🧤', effect: { attack: 23, defense: 8, mp: 80 }, rarity: 'legendary', price: 680 },
+    { name: '永恆護手', type: 'gloves', avatar: '🥊', effect: { attack: 26, hp: 180 }, rarity: 'legendary', price: 700 },
+    { name: '暗影之手', type: 'gloves', avatar: '🧤', effect: { attack: 24, critChance: 0.15 }, rarity: 'legendary', price: 720 },
+    { name: '毀滅之拳', type: 'gloves', avatar: '🥊', effect: { attack: 28, defense: 6 }, rarity: 'legendary', price: 750 },
+    { name: '神話護腕', type: 'gloves', avatar: '🧤', effect: { attack: 24, hp: 160, mp: 100 }, rarity: 'legendary', price: 730 },
+    { name: '戰神之手', type: 'gloves', avatar: '🥊', effect: { attack: 27, critChance: 0.08, hp: 140 }, rarity: 'legendary', price: 740 },
+    { name: '星辰手套', type: 'gloves', avatar: '✨', effect: { attack: 25, critChance: 0.12, mp: 90 }, rarity: 'legendary', price: 760 },
+    { name: '創世之手', type: 'gloves', avatar: '🥊', effect: { attack: 30, hp: 200, defense: 8 }, rarity: 'legendary', price: 800 }
 ];
 
 // 遊戲狀態
@@ -933,6 +1029,8 @@ function selectClass(className) {
         equipment: {
             weapon: null,
             armor: null,
+            helmet: null,
+            gloves: null,
             accessory: null
         },
         inventory: [],
@@ -1084,10 +1182,10 @@ function generateDungeon() {
             const enemy = {
                 ...template,
                 x, y,
-                maxHp: template.hp + level * 5,
-                hp: template.hp + level * 5,
-                attack: template.attack + level * 2,
-                defense: template.defense + level
+                maxHp: template.hp + Math.floor(level * level * 0.8),
+                hp: template.hp + Math.floor(level * level * 0.8),
+                attack: template.attack + Math.floor(level * level * 0.3),
+                defense: template.defense + Math.floor(level * level * 0.15)
             };
             
             gameState.dungeon.enemies.push(enemy);
@@ -1293,6 +1391,8 @@ function equipItem(item, fromInventory = false) {
     
     if (item.type === 'weapon') slot = 'weapon';
     else if (item.type === 'armor') slot = 'armor';
+    else if (item.type === 'helmet') slot = 'helmet';
+    else if (item.type === 'gloves') slot = 'gloves';
     else if (item.type === 'accessory') slot = 'accessory';
     
     if (slot) {
@@ -2029,6 +2129,11 @@ function updateBattleUI() {
     document.getElementById('battlePlayerHp').style.width = `${playerHpPercent}%`;
     document.getElementById('battlePlayerHpText').textContent = `${player.hp}/${player.maxHp}`;
     
+    // 玩家魔力值
+    const playerMpPercent = (player.mp / player.maxMp) * 100;
+    document.getElementById('battlePlayerMp').style.width = `${playerMpPercent}%`;
+    document.getElementById('battlePlayerMpText').textContent = `${player.mp}/${player.maxMp}`;
+    
     // 敵人生命值
     const enemyHpPercent = (enemy.hp / enemy.maxHp) * 100;
     document.getElementById('battleEnemyHp').style.width = `${enemyHpPercent}%`;
@@ -2036,6 +2141,9 @@ function updateBattleUI() {
     
     // 更新技能按鈕
     updateBattleSkills();
+    
+    // 更新藥水按鈕狀態
+    updateBattleItemsState();
 }
 
 function updateBattleSkills() {
@@ -2101,15 +2209,12 @@ function updateBattleItems() {
         const btn = document.createElement('button');
         btn.className = 'btn btn-item btn-small';
         
-        // 判斷是否可用
-        let canUse = false;
+        // 生成效果文本
         let effectText = '';
-        if (item.effect.hp && gameState.player.hp < gameState.player.maxHp) {
-            canUse = true;
+        if (item.effect.hp) {
             effectText = `❤️+${item.effect.hp}`;
         }
-        if (item.effect.mp && gameState.player.mp < gameState.player.maxMp) {
-            canUse = true;
+        if (item.effect.mp) {
             effectText += effectText ? ` 💙+${item.effect.mp}` : `💙+${item.effect.mp}`;
         }
         
@@ -2122,8 +2227,19 @@ function updateBattleItems() {
             <span class="item-count">×${count}</span>
         `;
         
-        btn.disabled = !canUse;
-        btn.onclick = () => usePotionInBattle(item);
+        // 動態判斷是否可用
+        btn.onclick = () => {
+            const canUseNow = (item.effect.hp && gameState.player.hp < gameState.player.maxHp) || 
+                              (item.effect.mp && gameState.player.mp < gameState.player.maxMp);
+            if (canUseNow) {
+                usePotionInBattle(item);
+            }
+        };
+        
+        // 初始狀態判斷
+        const canUseInitial = (item.effect.hp && gameState.player.hp < gameState.player.maxHp) || 
+                               (item.effect.mp && gameState.player.mp < gameState.player.maxMp);
+        btn.disabled = !canUseInitial;
         
         container.appendChild(btn);
     });
@@ -2176,11 +2292,34 @@ function usePotionInBattle(item) {
     }
 }
 
+// 更新戰鬥藥水按鈕的可用狀態
+function updateBattleItemsState() {
+    const container = document.getElementById('battleItemsList');
+    const buttons = container.querySelectorAll('.btn-item');
+    
+    buttons.forEach(btn => {
+        // 從按鈕中提取物品名稱
+        const itemName = btn.querySelector('.item-name-battle').textContent;
+        
+        // 找到對應的物品
+        const item = gameState.player.inventory.find(i => i.name === itemName && i.type === 'consumable');
+        
+        if (item) {
+            // 判斷是否可用
+            const canUse = (item.effect.hp && gameState.player.hp < gameState.player.maxHp) || 
+                          (item.effect.mp && gameState.player.mp < gameState.player.maxMp);
+            btn.disabled = !canUse;
+        }
+    });
+}
+
 function updateEquipmentDisplay() {
     const equipment = gameState.player.equipment;
     
     updateEquipmentSlot('weaponSlot', equipment.weapon, '⚔️', '武器');
     updateEquipmentSlot('armorSlot', equipment.armor, '🛡️', '護甲');
+    updateEquipmentSlot('helmetSlot', equipment.helmet, '⛑️', '頭盔');
+    updateEquipmentSlot('glovesSlot', equipment.gloves, '🧤', '手套');
     updateEquipmentSlot('accessorySlot', equipment.accessory, '💍', '飾品');
 }
 
@@ -2204,7 +2343,7 @@ function updateEquipmentSlot(slotId, item, defaultIcon, defaultName) {
 
 // 為裝備欄添加點擊事件（卸下裝備）
 function setupEquipmentSlots() {
-    ['weaponSlot', 'armorSlot', 'accessorySlot'].forEach(slotId => {
+    ['weaponSlot', 'armorSlot', 'helmetSlot', 'glovesSlot', 'accessorySlot'].forEach(slotId => {
         const slot = document.getElementById(slotId);
         slot.addEventListener('click', () => {
             const slotType = slotId.replace('Slot', '');
@@ -2264,7 +2403,7 @@ function updateInventoryDisplay() {
                 sellItem(item);
             } else if (item.type === 'consumable') {
                 useConsumable(item);
-            } else if (item.type === 'weapon' || item.type === 'armor' || item.type === 'accessory') {
+            } else if (item.type === 'weapon' || item.type === 'armor' || item.type === 'helmet' || item.type === 'gloves' || item.type === 'accessory') {
                 equipItem(item, true);
             }
         });

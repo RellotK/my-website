@@ -867,6 +867,24 @@ body {
     color: var(--text-secondary);
 }
 
+.battle-mp {
+    min-width: 150px;
+    margin-top: 10px;
+}
+
+.battle-mp .progress-bar {
+    margin-bottom: 5px;
+}
+
+.battle-mp span {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.mp-fill {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
 .battle-vs {
     font-size: 2em;
     font-weight: bold;
