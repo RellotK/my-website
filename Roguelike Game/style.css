@@ -739,11 +739,27 @@ body {
 
 .item-icon {
     font-size: 1.8em;
+    flex-shrink: 0;
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .item-name {
-    flex: 1;
     font-weight: bold;
+    font-size: 0.95em;
+}
+
+.item-stats {
+    font-size: 0.85em;
+    color: var(--success-color);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 /* ========================================
@@ -1476,6 +1492,85 @@ body {
 }
 
 /* 戰鬥技能欄 */
+/* 戰鬥藥水區域 */
+.battle-items {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 10px;
+    border: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+.battle-items-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--success-color);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.battle-items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.btn-item {
+    background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-item:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.5);
+}
+
+.btn-item:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(70%);
+}
+
+.item-info-battle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.item-name-battle {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.item-effect {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.item-count {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.no-items {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 15px;
+}
+
 .battle-skills {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

@@ -216,6 +216,14 @@
                     <button class="btn btn-secondary btn-large" id="fleeBtn">🏃 逃跑</button>
                 </div>
 
+                <!-- 戰鬥道具欄 -->
+                <div class="battle-items" id="battleItems">
+                    <div class="battle-items-header">💊 快速使用</div>
+                    <div class="battle-items-list" id="battleItemsList">
+                        <!-- 動態生成可用藥水 -->
+                    </div>
+                </div>
+
                 <!-- 技能欄 -->
                 <div class="battle-skills" id="battleSkills">
                     <!-- 動態生成裝備的技能按鈕 -->
@@ -305,6 +313,8 @@
                         <div class="tutorial-details">
                             <p>• <strong>遭遇敵人：</strong>移動到敵人位置自動開始戰鬥</p>
                             <p>• <strong>戰鬥選項：</strong>攻擊、防禦、使用技能或逃跑</p>
+                            <p>• <strong>防禦機制：</strong>格擋敵人攻擊減少傷害，並有70%機率反擊</p>
+                            <p>• <strong>戰鬥藥水：</strong>戰鬥中可以使用背包中的藥水恢復生命或魔力</p>
                             <p>• <strong>技能消耗：</strong>使用技能需要消耗魔力值（MP）</p>
                             <p>• <strong>獲得獎勵：</strong>擊敗敵人獲得經驗值、金幣和裝備</p>
                         </div>
@@ -317,7 +327,7 @@
                         <div class="tutorial-details">
                             <p>• <strong>等級提升：</strong>累積經驗值可以升級，提升基礎屬性</p>
                             <p>• <strong>技能點數：</strong>每次升級獲得 1 點技能點，用於學習技能</p>
-                            <p>• <strong>職業進階：</strong>10 級和 30 級時可以進階到更強職業</p>
+                            <p>• <strong>職業進階：</strong>5 級和 10 級時可以進階到更強職業</p>
                             <p>• <strong>技能樹：</strong>點擊左側「技能樹」按鈕學習新技能</p>
                         </div>
                     </div>

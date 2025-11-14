@@ -626,13 +626,13 @@ const CLASSES = {
 
 // 職業進階路線
 const JOB_ADVANCEMENT = {
-    10: {
+    5: {
         warrior: ['berserker', 'paladin'],
         mage: ['elementalist', 'warlock'],
         priest: ['bishop', 'monk'],
         rogue: ['assassin', 'ranger']
     },
-    30: {
+    10: {
         berserker: ['warlord', 'gladiator'],
         paladin: ['crusader', 'guardian'],
         elementalist: ['archmage', 'stormcaller'],
@@ -646,19 +646,20 @@ const JOB_ADVANCEMENT = {
 
 // 敵人模板
 const ENEMY_TEMPLATES = [
-    { name: '哥布林', avatar: '👹', hp: 30, attack: 5, defense: 2, exp: 20, gold: 10, level: 1 },
-    { name: '骷髏戰士', avatar: '💀', hp: 45, attack: 8, defense: 3, exp: 35, gold: 20, level: 2 },
-    { name: '黑暗法師', avatar: '🧙‍♂️', hp: 40, attack: 12, defense: 2, exp: 45, gold: 30, level: 3 },
-    { name: '獸人勇士', avatar: '👺', hp: 70, attack: 10, defense: 5, exp: 55, gold: 35, level: 4 },
-    { name: '石像鬼', avatar: '🗿', hp: 90, attack: 12, defense: 8, exp: 70, gold: 45, level: 5 },
-    { name: '惡魔', avatar: '😈', hp: 100, attack: 15, defense: 6, exp: 90, gold: 60, level: 6 },
-    { name: '吸血鬼', avatar: '🧛', hp: 85, attack: 18, defense: 5, exp: 100, gold: 70, level: 7 },
-    { name: '龍族守衛', avatar: '🐉', hp: 150, attack: 20, defense: 10, exp: 150, gold: 100, level: 8 },
-    { name: '深淵領主', avatar: '👿', hp: 200, attack: 25, defense: 12, exp: 200, gold: 150, level: 9 }
+    { name: '哥布林', avatar: '👹', hp: 50, attack: 12, defense: 5, exp: 20, gold: 10, level: 1 },
+    { name: '骷髏戰士', avatar: '💀', hp: 80, attack: 18, defense: 8, exp: 35, gold: 20, level: 2 },
+    { name: '黑暗法師', avatar: '🧙‍♂️', hp: 90, attack: 25, defense: 6, exp: 45, gold: 30, level: 3 },
+    { name: '獸人勇士', avatar: '👺', hp: 130, attack: 22, defense: 12, exp: 55, gold: 35, level: 4 },
+    { name: '石像鬼', avatar: '🗿', hp: 180, attack: 28, defense: 18, exp: 70, gold: 45, level: 5 },
+    { name: '惡魔', avatar: '😈', hp: 220, attack: 35, defense: 15, exp: 90, gold: 60, level: 6 },
+    { name: '吸血鬼', avatar: '🧛', hp: 200, attack: 42, defense: 12, exp: 100, gold: 70, level: 7 },
+    { name: '龍族守衛', avatar: '🐉', hp: 300, attack: 50, defense: 25, exp: 150, gold: 100, level: 8 },
+    { name: '深淵領主', avatar: '👿', hp: 400, attack: 65, defense: 30, exp: 200, gold: 150, level: 9 }
 ];
 
 // 物品模板
 const ITEM_TEMPLATES = [
+    // 消耗品
     { name: '小型血瓶', type: 'consumable', avatar: '🧪', effect: { hp: 30 }, rarity: 'common', price: 20 },
     { name: '中型血瓶', type: 'consumable', avatar: '⚗️', effect: { hp: 60 }, rarity: 'uncommon', price: 40 },
     { name: '大型血瓶', type: 'consumable', avatar: '💊', effect: { hp: 100 }, rarity: 'rare', price: 80 },
@@ -667,18 +668,115 @@ const ITEM_TEMPLATES = [
     { name: '大型魔瓶', type: 'consumable', avatar: '💎', effect: { mp: 80 }, rarity: 'rare', price: 80 },
     { name: '萬能藥', type: 'consumable', avatar: '✨', effect: { hp: 50, mp: 50 }, rarity: 'rare', price: 100 },
     { name: '金幣袋', type: 'gold', avatar: '💰', effect: { gold: 50 }, rarity: 'common', price: 0 },
-    { name: '寶箱', type: 'gold', avatar: '�', effect: { gold: 150 }, rarity: 'rare', price: 0 },
-    { name: '鐵劍', type: 'weapon', avatar: '🗡️', effect: { attack: 5 }, rarity: 'common', price: 50 },
-    { name: '鋼劍', type: 'weapon', avatar: '⚔️', effect: { attack: 10 }, rarity: 'uncommon', price: 150 },
-    { name: '秘銀劍', type: 'weapon', avatar: '⚡', effect: { attack: 15 }, rarity: 'rare', price: 300 },
-    { name: '傳說之劍', type: 'weapon', avatar: '🔪', effect: { attack: 20 }, rarity: 'legendary', price: 600 },
-    { name: '皮甲', type: 'armor', avatar: '🦺', effect: { defense: 3 }, rarity: 'common', price: 50 },
-    { name: '鎖甲', type: 'armor', avatar: '🛡️', effect: { defense: 7 }, rarity: 'uncommon', price: 150 },
-    { name: '板甲', type: 'armor', avatar: '🏺', effect: { defense: 12 }, rarity: 'rare', price: 300 },
-    { name: '龍鱗甲', type: 'armor', avatar: '🐲', effect: { defense: 15 }, rarity: 'legendary', price: 600 },
+    { name: '寶箱', type: 'gold', avatar: '📦', effect: { gold: 150 }, rarity: 'rare', price: 0 },
+    
+    // 普通武器 (10種)
+    { name: '生鏽短劍', type: 'weapon', avatar: '🗡️', effect: { attack: 3 }, rarity: 'common', price: 30 },
+    { name: '木棒', type: 'weapon', avatar: '🏏', effect: { attack: 4, defense: 1 }, rarity: 'common', price: 35 },
+    { name: '石斧', type: 'weapon', avatar: '🪓', effect: { attack: 5 }, rarity: 'common', price: 40 },
+    { name: '銅劍', type: 'weapon', avatar: '⚔️', effect: { attack: 5, critChance: 0.02 }, rarity: 'common', price: 45 },
+    { name: '鐵劍', type: 'weapon', avatar: '🗡️', effect: { attack: 6 }, rarity: 'common', price: 50 },
+    { name: '獵人短弓', type: 'weapon', avatar: '🏹', effect: { attack: 5, critChance: 0.03 }, rarity: 'common', price: 50 },
+    { name: '戰錘', type: 'weapon', avatar: '🔨', effect: { attack: 7, defense: -1 }, rarity: 'common', price: 55 },
+    { name: '長矛', type: 'weapon', avatar: '🔱', effect: { attack: 6, critChance: 0.02 }, rarity: 'common', price: 55 },
+    { name: '彎刀', type: 'weapon', avatar: '🔪', effect: { attack: 5, critChance: 0.04 }, rarity: 'common', price: 60 },
+    { name: '戰斧', type: 'weapon', avatar: '⚒️', effect: { attack: 8, critChance: -0.02 }, rarity: 'common', price: 65 },
+    
+    // 普通防具 (10種)
+    { name: '布衣', type: 'armor', avatar: '👕', effect: { defense: 2 }, rarity: 'common', price: 30 },
+    { name: '皮帽', type: 'armor', avatar: '🎩', effect: { defense: 2, hp: 10 }, rarity: 'common', price: 35 },
+    { name: '皮甲', type: 'armor', avatar: '🦺', effect: { defense: 3 }, rarity: 'common', price: 40 },
+    { name: '皮靴', type: 'armor', avatar: '🥾', effect: { defense: 2, critChance: 0.02 }, rarity: 'common', price: 40 },
+    { name: '鐵盔', type: 'armor', avatar: '⛑️', effect: { defense: 4, hp: 15 }, rarity: 'common', price: 50 },
+    { name: '鎖甲背心', type: 'armor', avatar: '🦺', effect: { defense: 4 }, rarity: 'common', price: 50 },
+    { name: '護腕', type: 'armor', avatar: '🧤', effect: { defense: 3, attack: 1 }, rarity: 'common', price: 55 },
+    { name: '厚重斗篷', type: 'armor', avatar: '🧥', effect: { defense: 3, hp: 20 }, rarity: 'common', price: 55 },
+    { name: '鱗甲', type: 'armor', avatar: '🛡️', effect: { defense: 5 }, rarity: 'common', price: 60 },
+    { name: '戰士護肩', type: 'armor', avatar: '🎖️', effect: { defense: 4, hp: 25 }, rarity: 'common', price: 65 },
+    
+    // 優秀武器 (10種)
+    { name: '鋼劍', type: 'weapon', avatar: '⚔️', effect: { attack: 10 }, rarity: 'uncommon', price: 120 },
+    { name: '精鋼戰斧', type: 'weapon', avatar: '🪓', effect: { attack: 12, defense: 2 }, rarity: 'uncommon', price: 140 },
+    { name: '騎士長劍', type: 'weapon', avatar: '🗡️', effect: { attack: 11, hp: 30 }, rarity: 'uncommon', price: 150 },
+    { name: '強化弩', type: 'weapon', avatar: '🏹', effect: { attack: 10, critChance: 0.05 }, rarity: 'uncommon', price: 150 },
+    { name: '雙手巨劍', type: 'weapon', avatar: '⚔️', effect: { attack: 14, critChance: -0.03 }, rarity: 'uncommon', price: 160 },
+    { name: '魔法短杖', type: 'weapon', avatar: '🪄', effect: { attack: 9, mp: 20 }, rarity: 'uncommon', price: 160 },
+    { name: '符文刃', type: 'weapon', avatar: '🔪', effect: { attack: 11, critChance: 0.04 }, rarity: 'uncommon', price: 170 },
+    { name: '破甲錘', type: 'weapon', avatar: '🔨', effect: { attack: 13, defense: 3 }, rarity: 'uncommon', price: 170 },
+    { name: '精靈弓', type: 'weapon', avatar: '🏹', effect: { attack: 11, critChance: 0.06 }, rarity: 'uncommon', price: 180 },
+    { name: '雷光劍', type: 'weapon', avatar: '⚡', effect: { attack: 12, critChance: 0.03 }, rarity: 'uncommon', price: 180 },
+    
+    // 優秀防具 (10種)
+    { name: '鎖甲', type: 'armor', avatar: '🛡️', effect: { defense: 7 }, rarity: 'uncommon', price: 120 },
+    { name: '強化皮甲', type: 'armor', avatar: '🦺', effect: { defense: 6, hp: 40 }, rarity: 'uncommon', price: 130 },
+    { name: '鋼盔', type: 'armor', avatar: '⛑️', effect: { defense: 7, hp: 50 }, rarity: 'uncommon', price: 140 },
+    { name: '騎士護甲', type: 'armor', avatar: '🛡️', effect: { defense: 8, hp: 30 }, rarity: 'uncommon', price: 150 },
+    { name: '秘銀護腕', type: 'armor', avatar: '🧤', effect: { defense: 6, attack: 3 }, rarity: 'uncommon', price: 150 },
+    { name: '龍皮鎧甲', type: 'armor', avatar: '🐉', effect: { defense: 8, hp: 40 }, rarity: 'uncommon', price: 160 },
+    { name: '法師長袍', type: 'armor', avatar: '🧙', effect: { defense: 5, mp: 30 }, rarity: 'uncommon', price: 160 },
+    { name: '重型戰甲', type: 'armor', avatar: '🛡️', effect: { defense: 9, critChance: -0.02 }, rarity: 'uncommon', price: 170 },
+    { name: '精靈斗篷', type: 'armor', avatar: '🧥', effect: { defense: 6, critChance: 0.03 }, rarity: 'uncommon', price: 170 },
+    { name: '守護者鎧甲', type: 'armor', avatar: '🎖️', effect: { defense: 8, hp: 60 }, rarity: 'uncommon', price: 180 },
+    
+    // 稀有武器 (10種)
+    { name: '秘銀劍', type: 'weapon', avatar: '⚡', effect: { attack: 15 }, rarity: 'rare', price: 250 },
+    { name: '烈焰之刃', type: 'weapon', avatar: '🔥', effect: { attack: 16, critChance: 0.05 }, rarity: 'rare', price: 280 },
+    { name: '寒冰戰斧', type: 'weapon', avatar: '❄️', effect: { attack: 17, hp: 50 }, rarity: 'rare', price: 300 },
+    { name: '風暴之弓', type: 'weapon', avatar: '🌪️', effect: { attack: 15, critChance: 0.08 }, rarity: 'rare', price: 300 },
+    { name: '聖光戰錘', type: 'weapon', avatar: '✨', effect: { attack: 18, defense: 5 }, rarity: 'rare', price: 320 },
+    { name: '暗影雙刃', type: 'weapon', avatar: '🗡️', effect: { attack: 16, critChance: 0.07 }, rarity: 'rare', price: 320 },
+    { name: '魔導法杖', type: 'weapon', avatar: '🪄', effect: { attack: 14, mp: 50 }, rarity: 'rare', price: 330 },
+    { name: '屠龍巨劍', type: 'weapon', avatar: '⚔️', effect: { attack: 20, critChance: -0.02 }, rarity: 'rare', price: 350 },
+    { name: '符文長矛', type: 'weapon', avatar: '🔱', effect: { attack: 17, critChance: 0.06 }, rarity: 'rare', price: 350 },
+    { name: '雷神之錘', type: 'weapon', avatar: '⚡', effect: { attack: 19, mp: 30 }, rarity: 'rare', price: 380 },
+    
+    // 稀有防具 (10種)
+    { name: '板甲', type: 'armor', avatar: '🏺', effect: { defense: 12 }, rarity: 'rare', price: 250 },
+    { name: '秘銀鎧甲', type: 'armor', avatar: '🛡️', effect: { defense: 13, hp: 80 }, rarity: 'rare', price: 280 },
+    { name: '龍鱗護甲', type: 'armor', avatar: '🐲', effect: { defense: 14, hp: 100 }, rarity: 'rare', price: 300 },
+    { name: '聖騎士戰甲', type: 'armor', avatar: '⚔️', effect: { defense: 13, hp: 90, attack: 3 }, rarity: 'rare', price: 320 },
+    { name: '暗影披風', type: 'armor', avatar: '🧥', effect: { defense: 11, critChance: 0.06 }, rarity: 'rare', price: 300 },
+    { name: '元素法袍', type: 'armor', avatar: '🧙', effect: { defense: 10, mp: 60, attack: 4 }, rarity: 'rare', price: 320 },
+    { name: '泰坦戰甲', type: 'armor', avatar: '🛡️', effect: { defense: 15, hp: 120 }, rarity: 'rare', price: 350 },
+    { name: '鳳凰羽衣', type: 'armor', avatar: '🦅', effect: { defense: 11, hp: 100, mp: 40 }, rarity: 'rare', price: 340 },
+    { name: '惡魔皮甲', type: 'armor', avatar: '😈', effect: { defense: 12, attack: 5, critChance: 0.04 }, rarity: 'rare', price: 360 },
+    { name: '守護神鎧甲', type: 'armor', avatar: '🎖️', effect: { defense: 14, hp: 150 }, rarity: 'rare', price: 380 },
+    
+    // 傳說武器 (10種)
+    { name: '神聖之劍', type: 'weapon', avatar: '✨', effect: { attack: 25, hp: 100 }, rarity: 'legendary', price: 600 },
+    { name: '永恆之刃', type: 'weapon', avatar: '⚔️', effect: { attack: 28, critChance: 0.10 }, rarity: 'legendary', price: 650 },
+    { name: '毀滅者', type: 'weapon', avatar: '🔥', effect: { attack: 30, defense: 8 }, rarity: 'legendary', price: 700 },
+    { name: '月光神弓', type: 'weapon', avatar: '🌙', effect: { attack: 26, critChance: 0.12 }, rarity: 'legendary', price: 680 },
+    { name: '創世法杖', type: 'weapon', avatar: '🪄', effect: { attack: 24, mp: 100, critChance: 0.08 }, rarity: 'legendary', price: 700 },
+    { name: '末日審判', type: 'weapon', avatar: '⚡', effect: { attack: 32, hp: 80 }, rarity: 'legendary', price: 750 },
+    { name: '龍牙劍', type: 'weapon', avatar: '🐉', effect: { attack: 27, critChance: 0.09, hp: 100 }, rarity: 'legendary', price: 720 },
+    { name: '虛空之刃', type: 'weapon', avatar: '🌌', effect: { attack: 29, critChance: 0.11 }, rarity: 'legendary', price: 730 },
+    { name: '諸神黃昏', type: 'weapon', avatar: '💫', effect: { attack: 31, mp: 80 }, rarity: 'legendary', price: 760 },
+    { name: '真理之矛', type: 'weapon', avatar: '🔱', effect: { attack: 28, critChance: 0.10, defense: 5 }, rarity: 'legendary', price: 740 },
+    
+    // 傳說防具 (10種)
+    { name: '不朽戰甲', type: 'armor', avatar: '🛡️', effect: { defense: 20, hp: 200 }, rarity: 'legendary', price: 600 },
+    { name: '龍神鎧甲', type: 'armor', avatar: '🐲', effect: { defense: 22, hp: 250 }, rarity: 'legendary', price: 650 },
+    { name: '天使聖衣', type: 'armor', avatar: '👼', effect: { defense: 18, hp: 200, mp: 100 }, rarity: 'legendary', price: 680 },
+    { name: '惡魔戰甲', type: 'armor', avatar: '😈', effect: { defense: 21, attack: 10, critChance: 0.08 }, rarity: 'legendary', price: 700 },
+    { name: '泰坦之軀', type: 'armor', avatar: '⚡', effect: { defense: 25, hp: 300 }, rarity: 'legendary', price: 750 },
+    { name: '鳳凰聖袍', type: 'armor', avatar: '🦅', effect: { defense: 19, hp: 220, mp: 120 }, rarity: 'legendary', price: 720 },
+    { name: '深淵護甲', type: 'armor', avatar: '🌑', effect: { defense: 23, hp: 180, attack: 8 }, rarity: 'legendary', price: 730 },
+    { name: '星辰斗篷', type: 'armor', avatar: '⭐', effect: { defense: 20, critChance: 0.10, mp: 100 }, rarity: 'legendary', price: 710 },
+    { name: '永恆守護', type: 'armor', avatar: '🎖️', effect: { defense: 24, hp: 280, defense: 10 }, rarity: 'legendary', price: 760 },
+    { name: '神話鎧甲', type: 'armor', avatar: '👑', effect: { defense: 26, hp: 250, attack: 5 }, rarity: 'legendary', price: 780 },
+    
+    // 飾品 (保留原有+增加)
     { name: '力量戒指', type: 'accessory', avatar: '💍', effect: { attack: 8, defense: 3 }, rarity: 'rare', price: 200 },
     { name: '守護護符', type: 'accessory', avatar: '📿', effect: { defense: 10, hp: 50 }, rarity: 'rare', price: 200 },
-    { name: '賢者之石', type: 'accessory', avatar: '🔮', effect: { mp: 30, attack: 5 }, rarity: 'legendary', price: 400 }
+    { name: '賢者之石', type: 'accessory', avatar: '🔮', effect: { mp: 30, attack: 5 }, rarity: 'legendary', price: 400 },
+    { name: '暴擊項鍊', type: 'accessory', avatar: '📿', effect: { critChance: 0.08, attack: 6 }, rarity: 'rare', price: 220 },
+    { name: '生命寶石', type: 'accessory', avatar: '💎', effect: { hp: 100, defense: 5 }, rarity: 'rare', price: 210 },
+    { name: '魔力水晶', type: 'accessory', avatar: '🔷', effect: { mp: 60, attack: 4 }, rarity: 'rare', price: 200 },
+    { name: '戰神徽章', type: 'accessory', avatar: '🎖️', effect: { attack: 12, hp: 80 }, rarity: 'legendary', price: 450 },
+    { name: '不滅之心', type: 'accessory', avatar: '❤️', effect: { hp: 200, defense: 8 }, rarity: 'legendary', price: 480 },
+    { name: '無盡魔源', type: 'accessory', avatar: '✨', effect: { mp: 100, critChance: 0.06 }, rarity: 'legendary', price: 460 },
+    { name: '全知之眼', type: 'accessory', avatar: '👁️', effect: { attack: 10, defense: 8, critChance: 0.05 }, rarity: 'legendary', price: 500 }
 ];
 
 // 遊戲狀態
@@ -841,7 +939,7 @@ function selectClass(className) {
         kills: 0,
         class: className,
         classHistory: [className],
-        skillPoints: 0,  // 技能點數
+        skillPoints: 1,  // 技能點數（初始1點）
         learnedSkills: {}  // 已學習的技能 {skillId: level}
     };
     
@@ -1336,6 +1434,7 @@ function startBattle(enemy) {
     document.getElementById('enemyName').textContent = enemy.name;
     
     updateBattleUI();
+    updateBattleItems();
     clearBattleLog();
     addBattleLog(`遭遇 ${enemy.name}！`, 'danger');
 }
@@ -1377,11 +1476,25 @@ function playerBattleAction(action) {
             const finalDamage = Math.max(1, reducedDamage);
             
             player.hp -= finalDamage;
-            addBattleLog(`${enemy.name} 攻擊了你，但你成功防禦！只受到 ${finalDamage} 點傷害`, 'warning');
+            addBattleLog(`${enemy.name} 攻擊了你，但你成功格擋！只受到 ${finalDamage} 點傷害`, 'warning');
             
             if (player.hp <= 0) {
                 gameOver();
                 return;
+            }
+            
+            // 格擋後有70%機率進行反擊
+            if (Math.random() < 0.7) {
+                const counterDamage = Math.floor(player.attack * 0.6);
+                enemy.hp -= counterDamage;
+                addBattleLog(`⚡ 反擊！你對 ${enemy.name} 造成了 ${counterDamage} 點傷害！`, 'success');
+                
+                if (enemy.hp <= 0) {
+                    winBattle();
+                    return;
+                }
+            } else {
+                addBattleLog('反擊失敗...', 'warning');
             }
             break;
             
@@ -1430,10 +1543,8 @@ function playerBattleAction(action) {
                     return;
                 }
                 
-                // 如果不是治療技能，敵人反擊
-                if (!result.isHeal) {
-                    enemyAttack();
-                }
+                // 使用技能後敵人反擊
+                enemyAttack();
             }
             break;
             
@@ -1610,7 +1721,7 @@ function checkJobAdvancement() {
     const level = gameState.player.level;
     const currentClass = gameState.player.class;
     
-    if (level === 10 || level === 30) {
+    if (level === 5 || level === 10) {
         const advancement = JOB_ADVANCEMENT[level];
         if (advancement && advancement[currentClass]) {
             showJobAdvancement(level, advancement[currentClass]);
@@ -1622,7 +1733,7 @@ function checkJobAdvancement() {
 function showJobAdvancement(level, jobOptions) {
     document.getElementById('jobChangeModal').style.display = 'flex';
     
-    const text = level === 10 ? '恭喜達到 10 級！選擇你的進階職業' : '恭喜達到 30 級！選擇你的終極職業';
+    const text = level === 5 ? '恭喜達到 5 級！選擇你的進階職業' : '恭喜達到 10 級！選擇你的終極職業';
     document.getElementById('jobChangeText').textContent = text;
     
     const jobGrid = document.getElementById('jobOptions');
@@ -1840,9 +1951,9 @@ function useSkillInBattle(skillId) {
         return;
     }
     
-    // 敵人回合
+    // 使用技能後敵人反擊
     setTimeout(() => {
-        enemyTurn();
+        enemyAttack();
     }, 800);
 }
 
@@ -1963,6 +2074,108 @@ function updateBattleSkills() {
     }
 }
 
+// 更新戰鬥中的藥水列表
+function updateBattleItems() {
+    const container = document.getElementById('battleItemsList');
+    container.innerHTML = '';
+    
+    // 找出所有消耗品
+    const consumables = gameState.player.inventory.filter(item => item.type === 'consumable');
+    
+    if (consumables.length === 0) {
+        container.innerHTML = '<p class="no-items">沒有可用的藥水</p>';
+        return;
+    }
+    
+    // 統計相同藥水的數量
+    const itemCounts = {};
+    consumables.forEach(item => {
+        if (!itemCounts[item.name]) {
+            itemCounts[item.name] = { item: item, count: 0 };
+        }
+        itemCounts[item.name].count++;
+    });
+    
+    // 顯示藥水按鈕
+    Object.values(itemCounts).forEach(({ item, count }) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-item btn-small';
+        
+        // 判斷是否可用
+        let canUse = false;
+        let effectText = '';
+        if (item.effect.hp && gameState.player.hp < gameState.player.maxHp) {
+            canUse = true;
+            effectText = `❤️+${item.effect.hp}`;
+        }
+        if (item.effect.mp && gameState.player.mp < gameState.player.maxMp) {
+            canUse = true;
+            effectText += effectText ? ` 💙+${item.effect.mp}` : `💙+${item.effect.mp}`;
+        }
+        
+        btn.innerHTML = `
+            <span class="item-icon">${item.avatar}</span>
+            <div class="item-info-battle">
+                <span class="item-name-battle">${item.name}</span>
+                <span class="item-effect">${effectText}</span>
+            </div>
+            <span class="item-count">×${count}</span>
+        `;
+        
+        btn.disabled = !canUse;
+        btn.onclick = () => usePotionInBattle(item);
+        
+        container.appendChild(btn);
+    });
+}
+
+// 在戰鬥中使用藥水
+function usePotionInBattle(item) {
+    if (!gameState.inBattle) return;
+    
+    const player = gameState.player;
+    
+    // 找到物品在背包中的索引
+    const itemIndex = player.inventory.findIndex(i => i.name === item.name && i.type === 'consumable');
+    if (itemIndex === -1) return;
+    
+    let used = false;
+    let message = '';
+    
+    // 恢復生命
+    if (item.effect.hp) {
+        const actualHeal = Math.min(item.effect.hp, player.maxHp - player.hp);
+        if (actualHeal > 0) {
+            player.hp += actualHeal;
+            message += `❤️ 恢復了 ${actualHeal} 點生命值 `;
+            used = true;
+        }
+    }
+    
+    // 恢復魔力
+    if (item.effect.mp) {
+        const actualRestore = Math.min(item.effect.mp, player.maxMp - player.mp);
+        if (actualRestore > 0) {
+            player.mp += actualRestore;
+            message += `💙 恢復了 ${actualRestore} 點魔力值`;
+            used = true;
+        }
+    }
+    
+    if (used) {
+        // 從背包移除
+        player.inventory.splice(itemIndex, 1);
+        addBattleLog(`${item.avatar} 使用了 ${item.name}！${message}`, 'success');
+        
+        // 更新UI
+        updateBattleUI();
+        updateBattleItems();
+        
+        // 敵人反擊
+        enemyAttack();
+    }
+}
+
 function updateEquipmentDisplay() {
     const equipment = gameState.player.equipment;
     
@@ -2031,9 +2244,18 @@ function updateInventoryDisplay() {
             itemDiv.classList.add('sell-mode');
         }
         
+        // 生成裝備屬性描述
+        let statsText = '';
+        if (item.effect && (item.type === 'weapon' || item.type === 'armor' || item.type === 'accessory')) {
+            statsText = getItemStatsText(item.effect);
+        }
+        
         itemDiv.innerHTML = `
             <span class="item-icon">${item.avatar}</span>
-            <span class="item-name">${item.name}</span>
+            <div class="item-info">
+                <span class="item-name">${item.name}</span>
+                ${statsText ? `<span class="item-stats">${statsText}</span>` : ''}
+            </div>
             ${gameState.sellMode ? `<span class="item-price">💰${Math.floor(item.price * 0.5)}</span>` : ''}
         `;
         
@@ -2049,6 +2271,20 @@ function updateInventoryDisplay() {
         
         inventory.appendChild(itemDiv);
     });
+}
+
+// 生成物品屬性文字描述
+function getItemStatsText(effect) {
+    const stats = [];
+    if (effect.attack) stats.push(`⚔️+${effect.attack}`);
+    if (effect.defense) stats.push(`🛡️+${effect.defense}`);
+    if (effect.hp) stats.push(`❤️+${effect.hp}`);
+    if (effect.mp) stats.push(`💙+${effect.mp}`);
+    if (effect.critChance) {
+        const critPercent = (effect.critChance * 100).toFixed(0);
+        stats.push(`🔥${critPercent > 0 ? '+' : ''}${critPercent}%`);
+    }
+    return stats.join(' ');
 }
 
 function renderDungeon() {
