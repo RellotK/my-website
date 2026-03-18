@@ -1,0 +1,71 @@
+請產生一頁「企業 AI Copilot 架構說明」的簡報圖，風格為專業、現代、企業內訓簡報。
+
+【主標題（簡短）】
+RTF 架構的企業工作流程 Copilot
+
+【副標題（可選，小字）】
+知識庫驅動、可教學、可稽核的 AI Workflow Assistant
+
+【版面配置】
+使用「由上而下」或「由左至右」的資訊圖表（Infographic）版型，
+整體分成三個主要區塊，搭配圖示呈現，文字越少越好。
+
+---
+
+【區塊一：Role（角色）】
+以「人形助理 / AI 助理」圖示表示
+
+文字僅保留：
+- Workflow Assistant
+- SOP-based
+
+視覺重點：
+- 代表 AI 是企業內部流程助理
+- 只依據知識庫文件運作
+
+---
+
+【區塊二：Task（核心任務）】
+使用三個並列圖示（icon）
+
+每個圖示只搭配 1～2 個關鍵字：
+1. 理解流程（流程圖 icon）
+2. 解決問題（問號 / 工具 icon）
+3. 教育訓練（書本 / 學習 icon）
+
+---
+
+【區塊三：Function（功能模組）】
+使用模組化卡片或圖示群組呈現（4 個）
+
+每個模組僅保留關鍵詞：
+- Step-by-step Guidance
+- Info Retrieval
+- Training Content
+- Quiz & Assessment
+
+可用齒輪、文件、教材、考試 icon 表示
+
+---
+
+【底部視覺（很重要）】
+以「文件 → AI → 使用者」流程箭頭表示：
+
+SOP / Markdown 文件
+→ Copilot Agent
+→ 員工 / 新人 / 教育訓練
+
+底部小字強調（可選）：
+- Retrieval First
+- No Hallucination
+- Source Cited
+
+---
+
+【整體風格】
+- 扁平化設計（Flat design）
+- 企業感藍色 / 深灰色系
+- 圖示為主，避免長句
+- 適合用於期末發表或主管簡報
+
+請確保這是一張「一眼就能理解 AI 架構與價值」的單頁簡報圖。
